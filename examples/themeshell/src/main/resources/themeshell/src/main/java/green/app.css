@@ -1,0 +1,30 @@
+.root {
+	-fx-background-color: green;
+}
+
+/* SDI Styling */
+.split-pane {
+	-fx-background-color: green;
+	-fx-border-color: green;
+}
+
+.split-pane:vertical {
+	-fx-background-color: green;
+	-fx-border-color: green;
+}
+
+.split-pane:horizontal {
+	-fx-background-color: green;
+	-fx-border-color: green;
+}
+
+.split-pane *.split-pane-divider {
+	-fx-padding: 0 1 0 1;
+	-fx-background-color: lawngreen;
+	-fx-border-color: lawngreen;
+}
+
+.split-pane *.split-pane-divider:hover {
+	-fx-background-color: teal;
+	-fx-border-color: teal;
+}

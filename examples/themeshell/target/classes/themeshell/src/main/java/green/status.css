@@ -1,0 +1,23 @@
+.pane {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}
+
+.separator {
+	-fx-background-color: springgreen;
+	-fx-background-radius: 2;
+}
+
+.separator:horizontal .line {
+	-fx-border-color: springgreen transparent transparent transparent;
+}
+
+.separator:vertical .line {
+	-fx-border-color: springgreen transparent transparent transparent;
+}
+
+/* Custom classes for my controls */
+.label {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}

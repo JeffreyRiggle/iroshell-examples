@@ -1,0 +1,40 @@
+.tab-pane {
+	-fx-border-color:  green;
+	-fx-background-color: green;
+} 
+.tab-pane *.tab-header-background {
+	-fx-background-color: green;	
+}
+
+.tab {
+	-fx-focus-color: springgreen;
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: green;
+    -fx-border-color: green;
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: springgreen;
+    -fx-border-color: springgreen;
+    -fx-text-fill: white;
+}
+
+.tab .tab-label { 
+    -fx-text-fill: white;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.tab .label {
+	-fx-text-fill: white;
+}
+
+.tab:selected .label {
+	-fx-text-fill: white;
+}

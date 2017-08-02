@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="BindingView"
+		  class="examples.sharedui.BindingView"
+		  scope="prototype"/>
+
+	<bean id="NotepadView"
+		  class="examples.sharedui.NotepadView"
+		  scope="prototype"/>
+
+	<bean id="WebBrowserView"
+		  class="examples.sharedui.WebBrowserView"
+		  scope="prototype"/>
+
+	<bean id="BindingContentTab"
+		class="examples.sharedui.BindingContentTab"
+		scope="prototype">
+		<constructor-arg ref="BindingView"/>
+	</bean>
+
+	<bean id="NotepadContentTab"
+		  class="examples.sharedui.NotepadContentTab"
+		  scope="prototype">
+		<constructor-arg ref="NotepadView" />
+	</bean>
+
+	<bean id="WebBrowserContentTab"
+		  class="examples.sharedui.WebBrowserContentTab"
+		  scope="prototype">
+		<constructor-arg ref="WebBrowserView" />
+	</bean>
+</beans>

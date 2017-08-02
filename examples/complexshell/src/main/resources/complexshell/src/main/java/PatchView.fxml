@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+	<GridPane
+		AnchorPane.topAnchor="0.0" 
+		AnchorPane.leftAnchor="0.0" 
+		AnchorPane.rightAnchor="0.0"
+		AnchorPane.bottomAnchor="0.0"
+		vgap="10">
+		<columnConstraints>
+        	<ColumnConstraints minWidth="100" prefWidth="200" hgrow="ALWAYS" />
+        	<ColumnConstraints minWidth="100" prefWidth="200" hgrow="ALWAYS" />
+    	</columnConstraints>
+    	<rowConstraints>
+    		<RowConstraints minHeight="100.0" prefHeight="200.0" vgrow="ALWAYS" />
+    		<RowConstraints minHeight="25" prefHeight="25" vgrow="NEVER" /> 	
+    	</rowConstraints>
+    	<padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    	<WebView fx:id="webView" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+    	<Button fx:id="exit" text="Exit" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="LEFT" />
+    	<Button fx:id="cont" text="Continue" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="RIGHT"/>
+	</GridPane>	
+</fx:root>

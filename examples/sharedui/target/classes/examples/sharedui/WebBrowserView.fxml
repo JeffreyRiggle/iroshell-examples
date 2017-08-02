@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.web.WebView?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+	<GridPane
+		AnchorPane.topAnchor="0.0" 
+		AnchorPane.leftAnchor="0.0" 
+		AnchorPane.rightAnchor="0.0"
+		AnchorPane.bottomAnchor="0.0"
+		vgap="10">
+		<columnConstraints>
+        	<ColumnConstraints minWidth="100" prefWidth="200" hgrow="ALWAYS" />
+    	</columnConstraints>
+    	<rowConstraints>
+    		<RowConstraints minHeight="25.0" prefHeight="35.0" vgrow="NEVER" />
+    		<RowConstraints minHeight="100.0" prefHeight="200.0" vgrow="ALWAYS" /> 	
+    	</rowConstraints>
+		<TextArea fx:id="nav" GridPane.rowIndex="0" GridPane.columnIndex="0">
+			<padding><Insets top="15" right="5" bottom="5" left="5"/></padding>
+		</TextArea>
+		<WebView fx:id="browser" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+	</GridPane>	
+</fx:root>
