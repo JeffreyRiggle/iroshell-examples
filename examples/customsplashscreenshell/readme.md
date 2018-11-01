@@ -1,1 +1,1 @@
-![](complexshell.gif)
+![](splashshell.gif)
