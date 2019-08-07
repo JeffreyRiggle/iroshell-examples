@@ -1,14 +1,1 @@
-examples\sharedui\ThemeService.class
-examples\sharedui\BindingViewBluePrint.class
-examples\sharedui\BindingView.class
-examples\sharedui\WebBrowserContentTab.class
-examples\sharedui\NotepadView.class
-examples\sharedui\WebBrowserView.class
-examples\sharedui\ThemeView.class
-examples\sharedui\ThemeItem.class
-examples\sharedui\NotepadContentTab.class
-examples\sharedui\WebBrowserViewBluePrint.class
-examples\sharedui\BindingContentTab.class
-examples\sharedui\NotepadViewBluePrint.class
-examples\sharedui\BindingViewModel.class
-examples\sharedui\IThemeListener.class
+module-info.class
