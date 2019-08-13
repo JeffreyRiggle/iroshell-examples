@@ -9,7 +9,7 @@ public class CustomSplashShell extends MainShell{
 	public CustomSplashShell() {
 		super.applicationSettings.setDocumentType(DocumentType.SDI);
 		super.applicationSettings.applicationName("Splash Shell");
-		super.applicationSettings.version("Alpha 1.0");
+		super.applicationSettings.version("2.0");
 		super.applicationSettings.applicationFeatures(ApplicationFeatures.SPLASH_SCREEN);
 		super.applicationSettings.splashOptions().customSplashScreenCreator(new SplashCreator());
 	}
