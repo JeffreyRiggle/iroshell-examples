@@ -1,0 +1,132 @@
+on: 
+    push:
+        branches:
+            - master
+
+name: Create Release
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            
+            - name: Set up JDK
+              uses: actions/setup-java@v1
+              with:
+                java-version: '11'
+                java-package: 'jdk+fx'
+
+            - name: Setup Maven
+              env:
+                TOKEN: ${{ secrets.GITHUBTOKEN }}
+                USERNAME: JeffreyRiggle
+              run: |
+                envsubst < settings.tmpl > ~/.m2/settings.xml
+
+                - name: Build Complex Shell
+                working-directory: examples/complexshell
+                run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+  
+            - name: Build Custom Splash Screen Shell
+              working-directory: examples/customsplashscreenshell
+              run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+  
+            - name: Build MDI Shell
+              working-directory: examples/multipledocumentshell
+              run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+  
+            - name: Build SDI Shell
+              working-directory: examples/singledocumentshell
+              run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+  
+            - name: Build Theme Shell
+              working-directory: examples/themeshell
+              run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+            
+            - name: Copy Release
+              run: |
+                complexShellFiles=("examples/complexshell/target/*.jar")
+                cp ${complexShellFiles[0]} ComplexShellExample.jar
+
+                customSplashShellFiles=("examples/customsplashscreenshell/target/*.jar")
+                cp ${customSplashShellFiles[0]} CustomSplashShellExample.jar
+
+                mdiFiles=("examples/multipledocumentshell/target/*.jar")
+                cp ${mdiFiles[0]} MDIShellExample.jar
+
+                sdiFiles=("examples/singledocumentshell/target/*.jar")
+                cp ${sdiFiles[0]} SDIShellExample.jar
+
+                themeFiles=("examples/themeshell/target/*.jar")
+                cp ${themeFiles[0]} ThemeShellExample.jar
+
+            - name: Create Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                tag_name: 2.0.${{ github.run_number }}
+                release_name: Release 2.0.${{ github.run_number }}
+                body: |
+                  New release
+                draft: false
+                prerelease: false
+            
+            - name: Upload Complex Shell
+              id: upload_complex_shell
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./ComplexShellExample.jar
+                asset_name: ComplexShellExample.jar
+                asset_content_type: application/java-archive
+
+            - name: Upload Splash Shell
+              id: upload_splash_shell
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./CustomSplashShellExample.jar
+                asset_name: CustomSplashShellExample.jar
+                asset_content_type: application/java-archive
+
+            - name: Upload MDI Shell
+              id: upload_mdi_shell
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./MDIShellExample.jar
+                asset_name: MDIShellExample.jar
+                asset_content_type: application/java-archive
+
+            - name: Upload SDI Shell
+              id: upload_sdi_shell
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./SDIShellExample.jar
+                asset_name: SDIShellExample.jar
+                asset_content_type: application/java-archive
+
+            - name: Upload Theme Shell
+              id: upload_theme_shell
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./ThemeShellExample.jar
+                asset_name: ThemeShellExample.jar
+                asset_content_type: application/java-archive
