@@ -26,9 +26,9 @@ jobs:
               run: |
                 envsubst < settings.tmpl > ~/.m2/settings.xml
 
-                - name: Build Complex Shell
-                working-directory: examples/complexshell
-                run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
+            - name: Build Complex Shell
+              working-directory: examples/complexshell
+              run: xvfb-run mvn install -Drevision="${GITHUB_RUN_NUMBER}"
   
             - name: Build Custom Splash Screen Shell
               working-directory: examples/customsplashscreenshell
