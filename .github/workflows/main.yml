@@ -31,3 +31,11 @@ jobs:
             - name: Publish
               working-directory: examples/sharedui
               run: xvfb-run mvn deploy -Drevision="${GITHUB_RUN_NUMBER}"
+
+            - name: Build Complex Shell
+              working-directory: examples/complexshell
+              run: xvfb-run mvn test -Drevision="${GITHUB_RUN_NUMBER}"
+
+            - name: Build Custom Splash Screen Shell
+              working-directory: examples/customsplashscreenshell
+              run: xvfb-run mvn test -Drevision="${GITHUB_RUN_NUMBER}"
